@@ -30,7 +30,8 @@ module.exports = function() {
                     }
 
                     return unstyle.string(str).length;
-                }
+                },
+              hsep: '  '
             });
         }
     };
