@@ -40,5 +40,7 @@ describe('[index]', function () {
 
   describe('#render', function () {
     it('returns a string');
+
+    it('can handle terminal colors');
   });
 });
