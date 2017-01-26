@@ -29,9 +29,29 @@ describe('[index]', function () {
   });
 
   describe('#title', function () {
-    it('takes a string');
+    it('takes a string and renders it as output', function () {
+      var tbl = table();
+      var TITLE = 'this is a title';
 
-    it('renders the title as a single cell spanning the entire table');
+      tbl.title(TITLE);
+
+      var str = tbl.render();
+
+      expect(str).to.equal(TITLE);
+    });
+
+    it('renders the title as a single cell spanning the entire table', function () {
+      var tbl = table();
+      var TITLE = 'this is a title';
+      var ROW = ['one', 'two', 'three', 'four'];
+
+      tbl.title(TITLE);
+      tbl.row(ROW);
+
+      var str = tbl.render();
+
+      expect(str).to.equal(TITLE + '\n' + ROW.join('  '));
+    });
   });
 
   describe('#line', function () {
