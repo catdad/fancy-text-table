@@ -55,7 +55,32 @@ describe('[index]', function () {
   });
 
   describe('#line', function () {
-    it('renders as a break in the table');
+    it('renders as a new line', function () {
+      var tbl = table();
+
+      tbl.line();
+      tbl.line();
+      tbl.line();
+
+      var str = tbl.render();
+
+      expect(str).to.equal('\n\n');
+    });
+
+    it('adds breaks to the table and maintains alignment', function () {
+      var tbl = table();
+      var ROW1 = [1, 1, 1];
+      var ROW2 = ['one', 'one', 'one'];
+
+      tbl.row(ROW1);
+      tbl.line();
+      tbl.row(ROW2);
+
+      var str = tbl.render();
+      var expected = ROW1.join('    ') + '\n\n' + ROW2.join('  ');
+
+      expect(str).to.equal(expected);
+    });
   });
 
   describe('#render', function () {
