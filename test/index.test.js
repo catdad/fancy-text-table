@@ -84,7 +84,13 @@ describe('[index]', function () {
   });
 
   describe('#render', function () {
-    it('returns a string');
+    it('returns a string', function () {
+      var tbl = table();
+
+      var str = tbl.render();
+
+      expect(str).to.be.a('string');
+    });
 
     it('can handle terminal colors');
   });
