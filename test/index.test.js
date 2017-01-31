@@ -117,7 +117,27 @@ describe('[index]', function () {
         expect(unstyle.string(rows[0])).to.equal(rows[1]);
       });
 
-      it('can render titles using the terminal color ' + key);
+      it('can render titles using the terminal color ' + key, function () {
+        var tbl = table();
+
+        var title = 'this is the title of the table';
+        var row = ['this', 'is', 'a', 'colored', 'row'];
+
+        tbl.title(title);
+        tbl.title(func(title));
+        tbl.row(row);
+
+        var str = tbl.render();
+
+        var rows = str.split('\n');
+
+        expect(rows[1]).to.not.equal(rows[0]);
+        expect(rows[1].length).to.be.above(rows[0].length);
+        expect(unstyle.string(rows[1])).to.equal(rows[0]);
+
+        // make sure the rows are spaced correctly (not affected by titles);
+        expect(rows[2]).to.equal(row.join('  '));
+      });
     }
 
     for (var key in color) {
