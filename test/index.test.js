@@ -1,6 +1,9 @@
 /* jshint node: true, mocha: true */
 
 var expect = require('chai').expect;
+var unstyle = require('unstyle');
+
+var color = require('./_color.js');
 
 var table = require('../');
 
@@ -92,6 +95,33 @@ describe('[index]', function () {
       expect(str).to.be.a('string');
     });
 
-    it('can handle terminal colors');
+    function runColorTests(name, func) {
+      it('can render rows using terminal color ' + key, function () {
+        var tbl = table();
+
+        var row = ['this', 'is', 'a', 'colored', 'row'];
+
+        tbl.row(row.map(func));
+        tbl.row(row);
+
+        var str = tbl.render();
+
+        var rows = str.split('\n');
+
+        expect(rows).to.be.an('array').and.to.have.lengthOf(2);
+
+        // make sure the rows are not the exact same (one has colors, the other doesn't)
+        expect(rows[0]).to.not.equal(rows[1]);
+        expect(rows[0].length).to.be.above(rows[1].length);
+        // make sure that the unstyled color row has the same spacing as the original row
+        expect(unstyle.string(rows[0])).to.equal(rows[1]);
+      });
+
+      it('can render titles using the terminal color ' + key);
+    }
+
+    for (var key in color) {
+      runColorTests(key, color[key]);
+    }
   });
 });
