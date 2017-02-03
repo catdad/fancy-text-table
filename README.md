@@ -1,4 +1,4 @@
-fancy-text-table
+Fancy Text Table
 
 [![Build][1]][2]
 [![Test Coverage][3]][4]
@@ -22,3 +22,29 @@ fancy-text-table
 
 [10]: https://david-dm.org/catdad/fancy-text-table.svg
 [11]: https://david-dm.org/catdad/fancy-text-table
+
+You know, it's like [text-table](), but kinda fancier. It features mostly the same functionality, but conveniently handles titles spanning all table cells, table breaks, and colors in all cells.
+
+## Example
+
+```javascript
+var table = require('fancy-text-table');
+
+var tbl = table();
+
+tbl.title('numbers');
+tbl.row([1, 2, 3, 4]);
+tbl.line();
+tbl.title('letters');
+tbl.row(['a', 'b', 'c', 'd']);
+
+var str = tbl.render();
+
+console.log(str);
+
+// numbers
+// 1  2  3  4
+//
+// letters
+// a  b  c  d
+```
