@@ -11,7 +11,6 @@
     "type": "git",
     "url": "git+https://github.com/catdad/fancy-text-table.git"
   },
-  "keywords": [],
   "author": "Kiril Vatev <vatev.1@gmail.com>",
   "license": "ISC",
   "bugs": {
@@ -30,5 +29,16 @@
   },
   "engines": {
     "node": ">=0.12.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "text",
+    "table",
+    "ascii",
+    "rows",
+    "fancy",
+    "color"
+  ]
 }
