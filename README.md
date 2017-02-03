@@ -23,7 +23,7 @@
 [10]: https://david-dm.org/catdad/fancy-text-table.svg
 [11]: https://david-dm.org/catdad/fancy-text-table
 
-You know, it's like [text-table](), but kinda fancier. It features mostly the same functionality, but conveniently handles titles spanning all table cells, table breaks, and colors in all cells.
+You know, it's like [text-table](https://github.com/substack/text-table), but kinda fancier. It features mostly the same functionality, but conveniently handles titles spanning all table cells, table breaks, and colors in all cells.
 
 ## `require('fancy-text-table')` → Table
 
