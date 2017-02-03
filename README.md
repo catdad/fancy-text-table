@@ -1,4 +1,4 @@
- # Fancy Text Table
+# Fancy Text Table
 
 [![Build][1]][2]
 [![Test Coverage][3]][4]
